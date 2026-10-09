@@ -32,3 +32,10 @@ The trade-off: the library is IPv4-only and takes a prefix length as a bare inte
 - `prefix_length=0` describes the default route. The entire 32-bit address is host bits, so the only legal network address is `0.0.0.0`.
 - The library does not accept IPv6 addresses; passing one raises `ValueError`.
 - Addresses with leading zeros (e.g. `192.168.001.001`) are rejected, matching the behavior of Python's `ipaddress` module.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
