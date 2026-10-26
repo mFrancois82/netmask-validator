@@ -1,6 +1,6 @@
 [project]
 name = "netmask-validator"
-version = "0.1.0"
+version = "0.1.1"
 description = "Validate that an address and prefix length form a legal network and identify host bits set in the address."
 requires-python = ">=3.10"
 dependencies = []
